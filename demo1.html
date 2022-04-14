@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai tap lop den pin</title>
+</head>
+<body>
+<script>
+    class Battery {
+        constructor(energy) {
+            this.energy = energy;
+        }
+
+        getEnergy() {
+            return this.energy;
+        }
+
+        setEnergy(energy) {
+            this.energy = energy;
+        }
+
+        decreaseEnergy() {
+            if (this.energy > 0) {
+                this.energy--;
+            }
+        }
+    }
+
+    class PlashLamp {
+        constructor(status, battery) {
+            this.status = status;
+            this.battery = battery;
+        }
+
+        getStatus() {
+            return this.status;
+        }
+
+        setStatus(status) {
+            this.status = status;
+        }
+
+        setBattery(battery) {
+            this.battery = battery;
+        }
+
+        getBatteryInFo() {
+            return this.battery.getEnergy();
+        }
+
+        light() {
+            if (this.status) {
+                if (battery.getEnergy() > 0 && battery.getEnergy() <= 100) {
+                    battery.decreaseEnergy();
+                } else {
+                    this.turnOff();
+                }
+            }
+        }
+
+        turnOn() {
+            this.status = true;
+        }
+
+        turnOff() {
+            this.status = false;
+        }
+    }
+
+    let battery = new Battery(8);
+    let plashLamp = new PlashLamp(false, battery);
+    console.log(battery.getEnergy())
+    console.log(plashLamp.getBatteryInFo())
+    plashLamp.turnOn();
+    plashLamp.light();
+    plashLamp.light();
+    plashLamp.light();
+    plashLamp.light();
+    plashLamp.light();
+    console.log(battery.getEnergy())
+    console.log(plashLamp.getBatteryInFo())
+    console.log(plashLamp.getStatus())
+    plashLamp.turnOff();
+    plashLamp.light();
+    plashLamp.light();
+    plashLamp.light();
+    plashLamp.turnOn();
+    plashLamp.light();
+    plashLamp.light();
+    plashLamp.light();
+    plashLamp.light();
+    console.log(battery.getEnergy())
+    console.log(plashLamp.getBatteryInFo())
+    console.log(plashLamp.getStatus())
+
+</script>
+
+</body>
+</html>
